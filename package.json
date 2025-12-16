@@ -1,0 +1,6 @@
+{
+  "name": "steppifi-static-site",
+  "version": "1.0.0",
+  "description": "Static website for SteppiFi Finance. Server-side examples removed.",
+  "license": "MIT"
+}

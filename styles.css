@@ -1,0 +1,171 @@
+/* styles.css — Mobile-first responsive styles for SteppiFi
+   Clean fintech-style UI with neutral palette and single accent color.
+*/
+
+:root{
+  --bg: #ffffff;
+  --bg-end: #ffffff;
+  --card: #ffffff;
+  --muted: #6b7280; /* gray-500 */
+  --text: #0b1220; /* very dark */
+  --accent: #0d9488; /* teal */
+  --accent-600: #0b7b72;
+  --radius: 12px;
+  --shadow: 0 8px 28px rgba(10, 15, 20, 0.06);
+  --max-width: 1080px;
+}
+
+/* Dark theme variables — applied when user chooses dark or OS prefers dark */
+:root[data-theme="dark"]{
+  --bg: #0b1220;
+  --bg-end: #0b1220;
+  --card: #0f1724;
+  --muted: #94a3b8;
+  --text: #e6eef6;
+  --accent: #34d399; /* green-400 */
+  --accent-600: #10b981;
+  --shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) {
+    --bg: #0b1220;
+    --card: #0f1724;
+    --muted: #94a3b8;
+    --text: #e6eef6;
+    --accent: #34d399;
+    --accent-600: #10b981;
+    --shadow: 0 10px 30px rgba(2,6,23,0.6);
+  }
+}
+
+/* Ensure light theme explicitly uses white backgrounds */
+:root:not([data-theme="dark"]) {
+  --bg: #ffffff;
+  --bg-end: #ffffff;
+  --card: #ffffff;
+  --text: #0b1220;
+  --muted: #6b7280;
+}
+
+/* Base reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+html{background:var(--bg);transition:background .25s ease}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg),var(--bg-end) 120%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  transition:background .25s ease,color .18s ease;
+}
+
+/* Theme transition overlay (expanding circle from toggle) */
+.theme-overlay{
+  position:fixed;left:0;top:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%) scale(0);transition:transform .45s cubic-bezier(.2,.9,.2,1),width .45s cubic-bezier(.2,.9,.2,1),height .45s cubic-bezier(.2,.9,.2,1);will-change:transform,width,height,opacity;background:var(--bg);}
+
+.theme-animating *:not(.theme-overlay){transition:none !important}
+.container{
+  width:clamp(300px,92%,1200px);
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1.25rem;
+}
+
+/* Accessibility helper */
+.sr-only{position:absolute;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Header */
+.site-header{background:transparent;padding:1rem 0}
+.header-grid{display:flex;align-items:center;justify-content:space-between}
+.brand .logo{margin:0;font-size:1.125rem;letter-spacing:0.4px}
+.brand .tagline{margin:0;font-size:0.875rem;color:var(--muted)}
+.nav a{margin-left:1rem;color:var(--muted);text-decoration:none;font-weight:600}
+.nav a:hover{color:var(--text)}
+
+.header-actions{display:flex;align-items:center;margin-left:0.75rem}
+.theme-toggle{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:0.4rem 0.6rem;border-radius:8px;cursor:pointer;font-size:1rem}
+.theme-toggle:focus{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;padding-top:2rem;padding-bottom:2rem}
+.hero-title{font-size:1.6rem;margin:0 0 0.5rem;color:var(--text);font-weight:800}
+.hero-sub{color:var(--muted);margin:0 0 1rem}
+.hero-ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
+
+.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-600));color:#fff;border-color:transparent;box-shadow:0 10px 30px rgba(13, 121, 114, 0.12)}
+.btn-ghost{background:transparent;color:var(--accent);border:1px solid rgba(13,148,136,0.12)}
+
+.btn{background:transparent;border:1px solid transparent;padding:0.6rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(0)}
+
+.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-600));color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(37,99,235,0.18)}
+.btn-ghost{background:transparent;color:var(--accent);border:1px solid rgba(37,99,235,0.12)}
+
+/* Visual card */
+.hero-visual{display:flex;justify-content:center}
+.mock-card{width:220px;border-radius:16px;background:var(--card);box-shadow:var(--shadow);padding:1rem;display:flex;flex-direction:column;align-items:flex-start}
+.mock-card .card-top{font-size:2rem}
+.mock-card .card-body{margin-top:0.5rem;color:var(--muted)}
+
+/* About */
+.about h3,.features h3,.how h3,.contact h3{margin-top:0;margin-bottom:0.75rem}
+.muted{color:var(--muted)}
+.mission-vision{display:grid;grid-template-columns:1fr;gap:0.75rem;margin-top:1rem}
+.card.small{padding:1rem;border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+
+/* Features */
+.features-grid{display:grid;grid-template-columns:1fr;gap:0.75rem;margin-top:0.75rem}
+.feature-card{display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;border-radius:12px;background:var(--card);box-shadow:var(--shadow);transition:transform .2s ease}
+.feature-card:hover{transform:translateY(-6px)}
+.feature-card .icon{font-size:1.5rem}
+
+/* How it works */
+.steps{list-style:none;padding:0;margin:0;margin-top:0.75rem;display:grid;gap:0.75rem}
+.step{display:flex;gap:0.75rem;align-items:flex-start;padding:1rem;border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+.step-num{background:linear-gradient(180deg,var(--accent),var(--accent-600));color:white;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+/* Contact */
+.contact-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:0.75rem}
+.socials a{margin-left:0.5rem;text-decoration:none;font-size:1.25rem}
+
+/* Non-action label for CTA state */
+.coming-label{font-weight:700;color:var(--muted);padding:0.15rem 0.4rem;border-radius:8px;display:inline-block}
+
+/* Footer */
+.site-footer{padding:1.25rem 0;border-top:1px solid rgba(0,0,0,0.06);margin-top:2rem;background:transparent;transition:border-color .18s ease}
+
+:root[data-theme="dark"] .site-footer{border-top-color:rgba(255,255,255,0.06)}
+.footer-grid{display:flex;align-items:center;justify-content:space-between}
+.footer-contact a{color:var(--muted);text-decoration:none}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,9,15,0.45);opacity:0;pointer-events:none;transition:opacity .18s ease}
+.modal[aria-hidden="false"]{opacity:1;pointer-events:auto}
+.modal-panel{background:var(--card);padding:1.25rem;border-radius:14px;box-shadow:var(--shadow);max-width:480px;width:92%;position:relative}
+.modal-close{position:absolute;right:0.6rem;top:0.6rem;background:transparent;border:none;font-size:1rem;cursor:pointer}
+
+/* Responsive adjustments */
+@media(min-width:720px){
+  .hero{grid-template-columns:1fr 360px;padding-top:3.25rem;padding-bottom:3.25rem}
+  .hero-title{font-size:2rem}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .mission-vision{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .header-grid{padding:0}
+}
+
+@media(min-width:1100px){
+  .container{padding:2rem}
+}
+
+/* small visual touches */
+.card{transition:transform .18s ease, box-shadow .18s ease}
+
+/* subtle entrance animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero, .features, .how, .about, .contact{animation:fadeUp .55s ease both}

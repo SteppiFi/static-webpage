@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SteppiFi Finance — Goal-based financial planning</title>
+
+  <!-- Apply saved or system theme early to avoid FOUC -->
+  <script>
+    (function(){
+      try{
+        var s = localStorage.getItem('site-theme');
+        var prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var t = (s === 'dark' || s === 'light') ? s : (prefers ? 'dark' : 'light');
+        if(t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+      }catch(e){}
+    })();
+  </script>
+
+  <meta name="description" content="SteppiFi Finance — Goal-based financial planning. Plan, invest, and track your life goals with compliant and transparent guidance." />
+  <meta name="keywords" content="financial planning, mutual funds, goal based investing, personal finance, SteppiFi" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Logo size constraints -->
+  <style>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .site-logo {
+      max-height: 36px;
+      width: auto;
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .site-logo {
+        max-height: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header-grid">
+
+      <!-- Brand -->
+      <div class="brand">
+        <img 
+          src="assets/images/steppifi_finance.png"
+          alt="SteppiFi Finance Logo"
+          class="site-logo"
+        />
+        <div>
+          <h1 class="logo">SteppiFi Finance</h1>
+          <p class="tagline">Goal-based financial planning.</p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#trust">Trust</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <div class="hero-content">
+        <h2 class="hero-title">Plan Smarter. Grow Confidently.</h2>
+        <p class="hero-sub">Simple, structured financial planning for your goals.</p>
+        <div class="hero-ctas">
+          <span class="coming-label">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="card mock-card">
+          <div class="card-top">💳</div>
+          <div class="card-body">
+            <strong>Planning</strong>
+            <span>Clear goals & progress</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about container">
+      <h3>About SteppiFi</h3>
+      <p class="muted">
+        SteppiFi Finance is a goal-based financial planning platform.
+        We help individuals plan, track, and achieve life goals through
+        transparent guidance, smart tools, and future-ready integrations.
+        We do not store or hold customer funds.
+      </p>
+
+      <div class="mission-vision">
+        <div class="card small">
+          <h4>Who it's for</h4>
+          <p>Professionals and individuals seeking structured financial clarity.</p>
+        </div>
+        <div class="card small">
+          <h4>Why we exist</h4>
+          <p>To make financial planning simple, trustworthy, and accessible.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features container">
+      <h3>What We Help You With</h3>
+      <div class="features-grid">
+
+        <article class="feature-card card">
+          <div class="icon">🎯</div>
+          <h4>Goal-based Planning</h4>
+          <p>Plans aligned with your personal milestones.</p>
+        </article>
+
+        <article class="feature-card card">
+          <div class="icon">📈</div>
+          <h4>Investment Insights</h4>
+          <p>Portfolio structure and allocation clarity.</p>
+        </article>
+
+        <article class="feature-card card">
+          <div class="icon">🛡️</div>
+          <h4>Risk & Protection</h4>
+          <p>Awareness to safeguard your financial journey.</p>
+        </article>
+
+        <article class="feature-card card">
+          <div class="icon">📊</div>
+          <h4>Progress Tracking</h4>
+          <p>Visual dashboards to stay on course.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- How -->
+    <section id="how" class="how container">
+      <h3>How SteppiFi Works</h3>
+      <ol class="steps">
+
+        <li class="step card">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Define your goals</h4>
+            <p>Short-term and long-term life objectives.</p>
+          </div>
+        </li>
+
+        <li class="step card">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Build your plan</h4>
+            <p>Clear timelines and strategy.</p>
+          </div>
+        </li>
+
+        <li class="step card">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Track & adapt</h4>
+            <p>Monitor progress and refine decisions.</p>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact container">
+      <h3>Get Early Access</h3>
+      <p class="muted">SteppiFi Finance is launching soon.</p>
+
+      <div class="contact-row">
+        <span class="coming-label">Coming Soon</span>
+        <div class="socials">
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="#" aria-label="Instagram">📸</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section id="trust" class="trust container">
+      <h3>Trust & Compliance</h3>
+      <p class="muted">
+        Transparent guidance • Secure integrations •
+        We never hold customer funds.
+      </p>
+    </section>
+  </main>
+
+  <!-- Privacy -->
+  <section id="privacy" class="privacy container">
+    <h3>Privacy</h3>
+    <p class="muted">
+      This static site does not collect personal data.
+      Contact: hello@steppifi.finance
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p>© <span id="year"></span> SteppiFi Finance. All rights reserved.</p>
+        <p class="small">Investments are subject to market risks.</p>
+      </div>
+      <div class="footer-contact">
+        <span>hello@steppifi.finance</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
